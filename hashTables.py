@@ -1,5 +1,17 @@
 #calculating the hash code
-hash_set = [None, 'poo',None,'pete','poo']
+my_hash_set = [
+    [None],
+    ['Jones'],
+    [None],
+    ['Lisa'],
+    [None],
+    ['Bob'],
+    [None],
+    ['Siri'],
+    ['Pete'],
+    [None]
+]
+
 def hash_function(value):
     sum_of_char_value = 0
     for char in value:
@@ -7,14 +19,25 @@ def hash_function(value):
         #ord() function is used to get the Unicode code point of a single character.
     return sum_of_char_value % 10
     #assuming the size of length of the list is 10
-#print("Poo has the hash code", hash_function("Poo"))
+#print("Poo has the hash code", hash_function("Pooe"))
+
+#Adding the value for names in the Hash Set
+def add(value):
+    index = hash_function(value)
+    bucket = my_hash_set[index]
+    if value not in bucket:
+        bucket.append(value)
 
 # Looking up a name using the hash function
-def contains(name):
-    index = hash_function(name)
-    return hash_set[index] == name
+def contains(value):
+    index = hash_function(value)
+    bucket = my_hash_set[index]
+    return value in bucket
 
-print("poo is in the hash set:", contains('poo'))
+add('Stuart')
+
+print(my_hash_set)
+print("contains Stuart:",contains('Stuart'))
 
 
 
