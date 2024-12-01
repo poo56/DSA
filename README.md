@@ -35,7 +35,17 @@ Given a value, first we generate a key for the value via the hash function. The 
 Once the bucket is located, we then perform the desired operations on the bucket, such as add, remove and contains.
 <img width="256" alt="image" src="https://github.com/user-attachments/assets/d8b5ea4c-c651-45f0-9e01-f8235eb87da2">
 
+#### LinkedList As Bucket
 
+Intuition
+
+The common choice of hash function is the modulo operator, i.e. hash=valuemodbase. 
+
+Here, the base of modulo operation would determine the number of buckets that we would have at the end in the HashSet.
+
+Theoretically, the more buckets we have (hence the larger the space would be), the less likely that we would have collisions. The choice of base is a tradeoff between the space and the collision.
+
+In addition, it is generally advisable to use a prime number as the base of modulo, e.g. 769, in order to reduce the potential collisions.
 
      class MyHashSet:
          def __init__(self):
