@@ -118,5 +118,6 @@ In addition, it is generally advisable to use a prime number as the base of modu
      
              return False
 
-        
+A HashSet implements a hash table which allows it to change the underlying collection without disturbing the ordering of the elements.
+   
 
